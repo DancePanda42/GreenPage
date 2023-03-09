@@ -1,0 +1,18 @@
+﻿<div class="collapse navbar-collapse" >
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item mx-2">
+            <NavLink class="nav-link" href="/kreis-peine" Match="NavLinkMatch.All"><i class="fa fa-globe-europe me-1" />Kreis Peine</NavLink>
+        </li>
+        <li class="nav-item mx-2">
+            <NavLink class="nav-link" href="/vechelde" Match="NavLinkMatch.All"><i class="fa fa-location-pin me-1" />Vechelde</NavLink>
+        </li>
+        <li class="nav-item mx-2">
+            <NavLink class="nav-link" href="/about" Match="NavLinkMatch.All"><i class="fa fa-rocket me-1" />About Me</NavLink>
+        </li>
+    </ul>
+</div>
+
+@code {
+    [Parameter]
+    public RenderFragment? Content { get; set; }
+}

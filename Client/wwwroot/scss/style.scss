@@ -1,0 +1,17 @@
+/* import the necessary Bootstrap files */
+/* #region default theme */
+
+$primary: green;
+$secondary: #ff6a00;
+$success: #4cff00;
+$info: #ffd800;
+$warning: #ffc300;
+$danger: #d50000;
+
+$body-emphasis-color: #fff;
+$body-emphasis-color-dark: #fff;
+$navbar-light-active-color: #fff;
+$navbar-dark-active-color: #fff;
+/* #endregion */
+
+@import "../libs/bootstrap/scss/bootstrap.scss";

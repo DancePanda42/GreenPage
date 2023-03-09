@@ -1,0 +1,15 @@
+﻿<div class="navbar-brand">
+    <NavLink href="/" class="user-select-none nav-link d-inline-flex flex-row align-items-center" Match="NavLinkMatch.Prefix">
+        <img style="height:5rem;" src=@IconSource />
+        <h1 class="ms-3 mt-1 text-white" style="font-family:BereitBold;">@Text</h1>
+    </NavLink>
+</div>
+
+@code {
+
+    [Parameter]
+    public string? Text { get; set; }
+
+    [Parameter]
+    public string? IconSource { get; set; }
+}

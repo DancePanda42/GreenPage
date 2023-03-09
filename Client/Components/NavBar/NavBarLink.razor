@@ -1,0 +1,11 @@
+﻿<li>
+    <NavLink href=@TargetPage class="btn nav-link"  Content="Content" />
+</li>
+
+@code {
+    [Parameter]
+    public RenderFragment? Content { get; set; }
+
+    [Parameter]
+    public string? TargetPage{ get; set; }
+}

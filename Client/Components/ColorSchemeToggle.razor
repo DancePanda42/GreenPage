@@ -1,0 +1,44 @@
+﻿@using GreenPage.Client.Services;
+<div class="dropdown m-2">
+    <button class="btn dropdown-toggle nav-link" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa @FaIconFromScheme(currentSchemeMode) me-2" />Theme</button>
+    <ul class="dropdown-menu dropdown-menu-end">
+        <li>
+            <button class="dropdown-item" @onclick=@(() => SetColorScheme("light"))><i class="fa @(FaIconFromScheme("light")) me-2" />Light</button>
+        </li>
+        <li>
+            <button class="dropdown-item" @onclick=@(() => SetColorScheme("dark"))><i class="fa @(FaIconFromScheme("dark")) me-2" />Dark</button>
+        </li>
+        <li>
+            <button class="dropdown-item" @onclick=@(() => SetColorScheme("auto"))><i class="fa @(FaIconFromScheme("auto")) me-2" />Auto</button>
+        </li>
+    </ul>
+</div>
+
+@code {
+    [Inject]
+    public IColorSchemeService? JS { get; set; }
+
+    private string currentSchemeMode = "auto";
+
+    private ValueTask? SetColorScheme(string theme)
+    {
+        currentSchemeMode = theme;
+        return JS?.SetScheme(theme);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var preferredSheme = await (JS?.GetPreferredColorScheme() ?? ValueTask.FromResult("auto"));
+        await (JS?.SetScheme(preferredSheme) ?? ValueTask.CompletedTask);
+        await base.OnInitializedAsync();
+    }
+
+    private string FaIconFromScheme(string scheme)
+        => scheme switch
+        {
+            "light" => "fa-sun",
+            "dark" => "fa-moon",
+            "auto" => "fa-circle-half-stroke",
+            _ => "",
+        };
+}
