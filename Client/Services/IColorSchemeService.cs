@@ -1,8 +1,7 @@
-﻿namespace GreenPage.Client.Services
+﻿namespace GreenPage.Client.Services;
+
+public interface IColorSchemeService
 {
-    public interface IColorSchemeService
-    {
-        ValueTask SetScheme(string scheme);
-        ValueTask<string> GetPreferredColorScheme(); 
-    }
+    ValueTask SetScheme(string scheme);
+    ValueTask<string> GetPreferredColorScheme(); 
 }
